@@ -1,0 +1,41 @@
+﻿@model List<RefDef.Web.Models.Book>
+
+<h2>Book List</h2>
+
+<p>
+    <a asp-action="Create">Create New Book</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>ISBN</th>
+            <th>Pages</th>
+            <th>Published</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Publisher</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.ISBN</td>
+                <td>@book.Pages</td>
+                <td>@book.PublishedDate.ToShortDateString()</td>
+                <td>@book.Author?.FullName</td>
+                <td>@book.Category?.Name</td>
+                <td>@book.Publisher?.Name</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@book.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@book.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@book.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

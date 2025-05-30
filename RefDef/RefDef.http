@@ -1,0 +1,6 @@
+@RefDef_HostAddress = http://localhost:5247
+
+GET {{RefDef_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
