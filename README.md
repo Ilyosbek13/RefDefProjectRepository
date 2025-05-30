@@ -50,7 +50,7 @@ RefDef.API/appsettings.json
 ### 4. Run both projects in Visual Studio
 
 RefDef.API runs on https://localhost:7000/api
-RefDef.Web runs on https://localhost:7100/books
+RefDef.Web runs on https://localhost:7133/books
 
 🌐 API Endpoints (Sample)
 GET /api/books
