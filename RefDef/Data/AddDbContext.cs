@@ -12,7 +12,6 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Optional: Configure relationships
         modelBuilder.Entity<Book>()
             .HasOne(b => b.Author)
             .WithMany(a => a.Books)

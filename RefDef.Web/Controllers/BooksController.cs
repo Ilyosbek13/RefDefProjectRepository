@@ -43,7 +43,7 @@ namespace RefDef.Web.Controllers
             if (response.IsSuccessStatusCode)
                 return RedirectToAction("Index");
 
-            model = await LoadFormOptions(model); // refill dropdowns on failure
+            model = await LoadFormOptions(model);
             return View(model);
         }
 
@@ -66,7 +66,7 @@ namespace RefDef.Web.Controllers
             if (response.IsSuccessStatusCode)
                 return RedirectToAction("Index");
 
-            model = await LoadFormOptions(model); // refill dropdowns
+            model = await LoadFormOptions(model); 
             return View(model);
         }
 
@@ -85,7 +85,6 @@ namespace RefDef.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        // 🔄 Helper: get dropdown data from API
         private async Task<BookFormViewModel> LoadFormOptions(BookFormViewModel model)
         {
             model.Authors = await GetApiData<List<Author>>("authors") ?? new();
@@ -94,7 +93,6 @@ namespace RefDef.Web.Controllers
             return model;
         }
 
-        // 🔄 Helper: generic API GET method
         private async Task<T?> GetApiData<T>(string endpoint)
         {
             var response = await _httpClient.GetAsync(endpoint);

@@ -22,17 +22,17 @@ public class Book
     public int AuthorId { get; set; }
 
     [ForeignKey("AuthorId")]
-    public Author? Author { get; set; } // ✅ Remove [Required]
+    public Author? Author { get; set; }
 
     [Required]
     public int CategoryId { get; set; }
 
     [ForeignKey("CategoryId")]
-    public Category? Category { get; set; } // ✅ Remove [Required]
+    public Category? Category { get; set; } 
 
     [Required]
     public int PublisherId { get; set; }
 
     [ForeignKey("PublisherId")]
-    public Publisher? Publisher { get; set; } // ✅ Remove [Required]
+    public Publisher? Publisher { get; set; }
 }

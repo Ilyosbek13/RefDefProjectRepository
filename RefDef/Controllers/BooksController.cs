@@ -15,7 +15,7 @@ namespace RefDef.Controllers
             _context = context;
         }
 
-        // GET: api/Books
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
         {
@@ -26,7 +26,7 @@ namespace RefDef.Controllers
                 .ToListAsync();
         }
 
-        // GET: api/Books/5
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Book>> GetBook(int id)
         {
@@ -42,7 +42,7 @@ namespace RefDef.Controllers
             return book;
         }
 
-        // PUT: api/Books/5
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBook(int id, Book book)
         {
@@ -66,7 +66,7 @@ namespace RefDef.Controllers
             return NoContent();
         }
 
-        // POST: api/Books
+
         [HttpPost]
         public async Task<ActionResult<Book>> PostBook(Book book)
         {
@@ -76,7 +76,7 @@ namespace RefDef.Controllers
             return CreatedAtAction("GetBook", new { id = book.Id }, book);
         }
 
-        // DELETE: api/Books/5
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBook(int id)
         {

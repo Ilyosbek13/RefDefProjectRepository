@@ -20,14 +20,14 @@ namespace RefDef.Controllers
             _context = context;
         }
 
-        // GET: api/Publishers
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Publisher>>> GetPublishers()
         {
             return await _context.Publishers.ToListAsync();
         }
 
-        // GET: api/Publishers/5
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Publisher>> GetPublisher(int id)
         {
@@ -41,8 +41,7 @@ namespace RefDef.Controllers
             return publisher;
         }
 
-        // PUT: api/Publishers/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPublisher(int id, Publisher publisher)
         {
@@ -72,8 +71,7 @@ namespace RefDef.Controllers
             return NoContent();
         }
 
-        // POST: api/Publishers
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPost]
         public async Task<ActionResult<Publisher>> PostPublisher(Publisher publisher)
         {
@@ -83,7 +81,7 @@ namespace RefDef.Controllers
             return CreatedAtAction("GetPublisher", new { id = publisher.Id }, publisher);
         }
 
-        // DELETE: api/Publishers/5
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePublisher(int id)
         {
