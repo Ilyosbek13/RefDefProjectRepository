@@ -17,7 +17,7 @@ public class Book
 
     [Required]
     public DateTime PublishedDate { get; set; }
-
+    
     [Required]
     public int AuthorId { get; set; }
 

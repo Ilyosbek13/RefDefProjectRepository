@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RefDef.Models;
+using RefDef.Models.Dtos;
 
 namespace RefDef.Controllers
 {
@@ -17,14 +18,28 @@ namespace RefDef.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
+        public async Task<ActionResult<IEnumerable<BookDto>>> GetBooks()
         {
-            return await _context.Books
+            var books = await _context.Books
                 .Include(b => b.Author)
                 .Include(b => b.Category)
                 .Include(b => b.Publisher)
+                .Select(b => new BookDto
+                {
+                    Id = b.Id,
+                    Title = b.Title,
+                    ISBN = b.ISBN,
+                    Pages = b.Pages,
+                    PublishedDate = b.PublishedDate,
+                    AuthorName = b.Author.FullName,
+                    CategoryName = b.Category.Name,
+                    PublisherName = b.Publisher.Name
+                })
                 .ToListAsync();
+
+            return books;
         }
+
 
 
         [HttpGet("{id}")]
