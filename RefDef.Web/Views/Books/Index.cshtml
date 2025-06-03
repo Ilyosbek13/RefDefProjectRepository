@@ -9,6 +9,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>No.</th> 
             <th>Title</th>
             <th>ISBN</th>
             <th>Pages</th>
@@ -20,22 +21,28 @@
         </tr>
     </thead>
     <tbody>
+        @{
+            var count = 1;
+        }
+
         @foreach (var book in Model)
         {
-            <tr>
-                <td>@book.Title</td>
-                <td>@book.ISBN</td>
-                <td>@book.Pages</td>
-                <td>@book.PublishedDate.ToShortDateString()</td>
-                <td>@book.Author?.FullName</td>
-                <td>@book.Category?.Name</td>
-                <td>@book.Publisher?.Name</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@book.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@book.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@book.Id">Delete</a>
-                </td>
-            </tr>
+                <tr>
+                    <td>@count</td> 
+                    <td>@book.Title</td>
+                    <td>@book.ISBN</td>
+                    <td>@book.Pages</td>
+                    <td>@book.PublishedDate.ToShortDateString()</td>
+                    <td>@book.Author?.FullName</td>
+                    <td>@book.Category?.Name</td>
+                    <td>@book.Publisher?.Name</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@book.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@book.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@book.Id">Delete</a>
+                    </td>
+                </tr>
+            count++;
         }
     </tbody>
 </table>
