@@ -39,9 +39,7 @@ git clone https://github.com/Ilyosbek13/RefDefProjectRepository.git
 cd RefDefProjectRepository
 
 ### 2. Set up the database
-Import BookDb.sql into your local SQL Server
-
-OR connect to your AWS-hosted DB
+Restore the database using BookDb backup file
 
 ### 3. Configure the connection string in:
 
