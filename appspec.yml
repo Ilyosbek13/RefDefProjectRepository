@@ -1,12 +1,10 @@
 version: 0.0
 os: windows
-
 files:
-  - source: \
+  - source: \refdef.web\
     destination: C:\inetpub\wwwroot
-
 hooks:
   AfterInstall:
-    - location: scripts/install.ps1
+    - location: scripts\install.ps1
       timeout: 300
       runas: Administrator
