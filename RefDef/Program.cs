@@ -13,6 +13,8 @@ builder.Services.AddControllers()
 
 
 
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
